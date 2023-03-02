@@ -1,30 +1,24 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { Usuario } from './usuarios/usuarios.entity';
-import { UsuariosModule } from './usuarios/usuarios.module';
-import { UsuariosController } from './usuarios/usuarios.controller';
-import { UsuariosService } from './usuarios/usuarios.service';
-import { UsuarioInterface } from './usuarios/usuarios.interface';
-import { Movies } from './movies/movies.entity';
-import { Vistas } from './vistas/vistas.entity';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      "type": "mysql",
-      "host": "localhost",
-      "port": 3306,
-      "username": "root",
-      "password": "root",
-      "database": "db_appweb",
-      "entities": [Usuario, Movies, Vistas],
-      "synchronize": false,
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'db_appweb',
+      synchronize: false,
+      autoLoadEntities: true,
     }),
-    UsuariosModule,
+    UsersModule,
   ],
-  controllers: [AppController, UsuariosController],
-  providers: [AppService, UsuariosService],
+  controllers: [AppController],
+  providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
