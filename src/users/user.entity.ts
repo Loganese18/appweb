@@ -1,4 +1,5 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { WatchedEntity } from 'src/watched/watched.entity';
+import { Column, Entity, Index, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Index('id_2', ['id'], { unique: true })
 @Index('userName', ['userName'], { unique: true })
@@ -39,6 +40,6 @@ export class UserEntity {
   })
   suscription: string | null;
 
-  // @OneToMany(() => Vistas, (vistas) => vistas.nombreUsuario2)
-  // vistas: Vistas[];
+  @OneToMany(() => WatchedEntity, (watched) => watched.userName)
+  watched: WatchedEntity[];
 }

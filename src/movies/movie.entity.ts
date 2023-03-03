@@ -1,4 +1,5 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { WatchedEntity } from 'src/watched/watched.entity';
+import { Column, Entity, Index, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Index('id', ['id'], { unique: true })
 @Entity('movies', { schema: 'db_appweb' })
@@ -20,4 +21,7 @@ export class MovieEntity {
 
   @Column('varchar', { name: 'director', nullable: true, length: 70 })
   director: string | null;
+
+  @OneToMany(() => WatchedEntity, (watched) => watched.title)
+  watched: WatchedEntity[];
 }

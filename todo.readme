@@ -1,6 +1,6 @@
 ////remove references to old entities from codebase 
 ////translate database and codebase
 ////add id (primary key) column to all tables in database
-module for movies and endpoint to get all
+////module for movies and endpoint to get all
 module for watched
 endpoint to get all movies watched by a user by id

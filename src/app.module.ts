@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MoviesModule } from './movies/movies.module';
 import { UsersModule } from './users/users.module';
+import { WatchedModule } from './watched/watched.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { UsersModule } from './users/users.module';
     }),
     MoviesModule,
     UsersModule,
+    WatchedModule,
   ],
   controllers: [AppController],
   providers: [AppService],
