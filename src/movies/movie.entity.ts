@@ -2,7 +2,7 @@ import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 
 @Index('id', ['id'], { unique: true })
 @Entity('movies', { schema: 'db_appweb' })
-export class MoviesEntity {
+export class MovieEntity {
   @PrimaryGeneratedColumn({ type: 'int', name: 'id' })
   id: number;
 
