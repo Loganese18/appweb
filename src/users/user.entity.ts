@@ -1,7 +1,7 @@
 import { WatchedEntity } from 'src/watched/watched.entity';
 import { Column, Entity, Index, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-@Index('id_2', ['id'], { unique: true })
+@Index('id', ['id'], { unique: true })
 @Index('userName', ['userName'], { unique: true })
 @Index('email_UNIQUE', ['email'], { unique: true })
 @Entity('users', { schema: 'db_appweb' })
