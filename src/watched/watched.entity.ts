@@ -10,6 +10,7 @@ export class WatchedEntity {
 
   @Column('varchar', { name: 'userName', length: 70 })
   userName: string;
+
   @Column('varchar', { name: 'title', length: 70 })
   title: string;
 
