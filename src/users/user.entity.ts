@@ -40,6 +40,6 @@ export class UserEntity {
   })
   suscription: string | null;
 
-  @OneToMany(() => WatchedEntity, (watched) => watched.userName)
+  @OneToMany(() => WatchedEntity, (watched) => watched.user)
   watched: WatchedEntity[];
 }

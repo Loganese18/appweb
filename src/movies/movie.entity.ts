@@ -22,6 +22,6 @@ export class MovieEntity {
   @Column('varchar', { name: 'director', nullable: true, length: 70 })
   director: string | null;
 
-  @OneToMany(() => WatchedEntity, (watched) => watched.title)
+  @OneToMany(() => WatchedEntity, (watched) => watched.movie)
   watched: WatchedEntity[];
 }

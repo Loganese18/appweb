@@ -11,6 +11,6 @@ export class WatchedService {
   ) {}
 
   getAll() {
-    return 'returns all entries from watched table';
+    return this.watchedRepository.find();
   }
 }
