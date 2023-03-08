@@ -18,4 +18,9 @@ export class UsersService {
   getByUsername(username: string): Promise<UserEntity> {
     return this.usersRepository.findOne({ where: { userName: username } });
   }
+
+  async getUserNameById(id: number): Promise<{ userName: string }> {
+    const user = await this.usersRepository.findOneBy({ id: id });
+    return { userName: user.userName };
+  }
 }
