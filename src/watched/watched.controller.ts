@@ -1,5 +1,4 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { title } from 'process';
 import { UsersService } from 'src/users/users.service';
 import { WatchedEntity } from './watched.entity';
 import { WatchedService } from './watched.service';
@@ -18,9 +17,9 @@ export class WatchedController {
 
   @Get(':userid/watched')
   async getMoviesByUserId(@Param('userid') userid: number) {
-    const user = await this.userService.getUserNameById(userid);
+    const user = await this.userService.getById(userid);
     const username = user.userName;
-    const watchedTitles = this.watchedService.getTitlesByUserName(username)
+    const watchedTitles = this.watchedService.getTitlesByUserName(username);
     return watchedTitles;
   }
 }

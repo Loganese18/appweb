@@ -11,8 +11,8 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get(':username')
+  @Get(':id')
   async getOne(@Param() params): Promise<UserEntity> {
-    return this.usersService.getByUsername(params.username);
+    return this.usersService.getById(params.id);
   }
 }

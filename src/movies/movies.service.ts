@@ -14,4 +14,8 @@ export class MoviesService {
     // return 'This is going to return a list of users from UsersService';
     return this.moviesRepository.find();
   }
+
+  getMovieById(id: number) {
+    return this.moviesRepository.findOne({ where: { id } });
+  }
 }
