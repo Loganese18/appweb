@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpStatus, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpStatus, Param, Post } from '@nestjs/common';
 import { CreateUserDto } from './create.user.dto';
 import { UserEntity } from './user.entity';
 import { UsersService } from './users.service';
@@ -22,8 +22,13 @@ export class UsersController {
     const user = await this.usersService.createUser(CreateUserDto);
     return {
       statusCode: HttpStatus.OK,
-      message: 'User created succssefully',
+      message: 'User created successfully',
       user,
     };
+  }
+
+  @Delete(':id')
+  async deleteUser(@Param() params) {
+    await this.usersService.deleteUser(params.id);
   }
 }
