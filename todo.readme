@@ -4,3 +4,4 @@
 ////module for movies and endpoint to get all
 ////module for watched
 ////endpoint to get all movies watched by a user by id
+agregar Post, Put, Delete
