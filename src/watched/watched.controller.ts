@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Delete, Get, Param } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 import { WatchedEntity } from './watched.entity';
 import { WatchedService } from './watched.service';
@@ -21,5 +21,9 @@ export class WatchedController {
     const username = user.userName;
     const watchedTitles = this.watchedService.getTitlesByUserName(username);
     return watchedTitles;
+  }
+  @Delete(':id')
+  async deleteWatchedTitle(@Param() params) {
+    await this.watchedService.deleteWatchedTitle(params.id);
   }
 }
