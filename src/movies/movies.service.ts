@@ -18,4 +18,12 @@ export class MoviesService {
   getMovieById(id: number) {
     return this.moviesRepository.findOne({ where: { id } });
   }
+
+  async getPremierMovies(): Promise<MovieEntity[]> {
+    return await this.moviesRepository.find({
+      take: 10,
+      order: { year: 'DESC' },
+      select: ['title', 'year', 'genre', 'director'],
+    });
+  }
 }

@@ -11,8 +11,13 @@ export class MoviesController {
     return this.moviesService.findAll();
   }
 
-  @Get(':id')
+  @Get('premier')
+  async getPremierMovies(): Promise<MovieEntity[]> {
+    return this.moviesService.getPremierMovies();
+  }
+
+  @Get('/id/:num')
   async getMovieById(@Param() param): Promise<MovieEntity> {
-    return this.moviesService.getMovieById(param.id);
+    return this.moviesService.getMovieById(param.num);
   }
 }
