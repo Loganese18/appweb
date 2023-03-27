@@ -17,7 +17,6 @@ export class WatchedService {
   async getTitlesByUserName(username: string): Promise<string[]> {
     const watchedTitles = await this.watchedRepository.find({
       where: { userName: username },
-      select: ['title'],
     });
     return watchedTitles.map((w) => w.title);
   }

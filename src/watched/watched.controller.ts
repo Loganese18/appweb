@@ -15,7 +15,7 @@ export class WatchedController {
     return this.watchedService.getAll();
   }
 
-  @Get(':userid/watched')
+  @Get(':userid')
   async getMoviesByUserId(@Param('userid') userid: number) {
     const user = await this.userService.getById(userid);
     const username = user.userName;
